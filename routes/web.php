@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/user', function () {
+    $data = [
+        'name' => 'yc',
+        'email' => 'yc@163.com',
+        'email_verified_at' => now(),
+        'password' => '123456',
+    ];
+   $user = \App\Models\User::query()->create($data);
+   dd($user);
+});
